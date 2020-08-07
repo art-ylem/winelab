@@ -112,12 +112,12 @@
         android:layout_marginRight="15dp"
         android:background="@drawable/search_view_border"
         android:iconifiedByDefault="false"
+        app:queryBackground="@android:color/transparent"
         android:queryBackground="@android:color/transparent"
         android:queryHint="Поиск"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:queryBackground="@android:color/transparent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
 
     <TextView
@@ -130,29 +130,8 @@
         android:text="@string/exixtence_of_products"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchView" />
-
-    <Switch
-        android:id="@+id/switch_for_existence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/existence_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/existence_tv"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_products_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/switch_for_existence" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

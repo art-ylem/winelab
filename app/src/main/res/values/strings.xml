@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">winelab</string>
+    <string name="toolbar_top_title">Адреса магазина для оформления заказа</string>
+    <string name="toolbar_btm_title">г Москва (м Комсомольская) ул Большая Спасская, д 8</string>
+    <string name="exixtence_of_products">Показать товары в наличии</string>
+    <string name="product_name">Самбука Antica Классик 0,5 л</string>
+    <string name="old_price">4910</string>
+    <string name="new_price">3599</string>
+    <string name="in_existence_case_tv">При наличии в корзине:</string>
+    <string name="to_basket">В корзину</string>
 </resources>
