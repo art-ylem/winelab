@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 
 import com.example.winelab.model.Cat;
 import com.example.winelab.network.NetworkService;
@@ -20,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private HashMap<String, Integer> map;
 
     private ArrayList<Cat> cats;
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
 
 
     @Override
@@ -94,10 +95,18 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                 );
+        compositeDisposable.add(disposable);
 
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (compositeDisposable != null && compositeDisposable.size() != 0) {
+            compositeDisposable.dispose();
+        }
+    }
 
     private Observable<ArrayList<Cat>> getProducts() {
 
@@ -111,26 +120,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    @Override
-//    public boolean onQueryTextSubmit(String query) {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean onQueryTextChange(String query) {
-//
-//        String userInput = query.toLowerCase();
-//        ArrayList<Cat> newFilteredList = new ArrayList<>();
-//
-//
-//        for (Cat cat : cats) {
-//            if (String.valueOf(cat.getWidth()).startsWith(userInput)) newFilteredList.add(cat);
-//        }
-//
-//        if (newFilteredList.size() != 0) {
-//            recyclerViewProductAdapter.updateList(newFilteredList);
-//        }
-//
-//        return true;
-//    }
 }
