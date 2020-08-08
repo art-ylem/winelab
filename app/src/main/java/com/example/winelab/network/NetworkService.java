@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkService {
 
+    private static NetworkService mInstance;
     private static final String BASE_URL = "https://api.thecatapi.com/v1/";
     private Retrofit mRetrofit;
 
@@ -39,6 +40,13 @@ public class NetworkService {
 
     public Api getJSONApi() {
         return mRetrofit.create(Api.class);
+    }
+
+    public static NetworkService getInstance() {
+        if (mInstance == null) {
+            mInstance = new NetworkService();
+        }
+        return mInstance;
     }
 
 }

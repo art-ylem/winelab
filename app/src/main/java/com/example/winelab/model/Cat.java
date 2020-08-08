@@ -31,6 +31,16 @@ public class Cat  {
         isFavotite = favotite;
     }
 
+    private int count = 1;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     public String getId() {
         return id;
     }
